@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Weather App</h1>
+    <form>
+      <label for="search">Enter a location:</label>
+      <input type="text" id="search" placeholder="e.g. New York City">
+      <button type="submit">Search</button>
+    </form>
+    <div id="loading">
+      <img src="loading.gif" alt="Loading...">
+    </div>
+    <div id="error" class="hidden">
+      <p>There was an error retrieving weather data.</p>
+    </div>
+    <div id="weather" class="hidden">
+      <h2><span id="location"></span></h2>
+      <div class="current">
+        <p id="temperature"></p>
+        <p id="condition"></p>
+        <img id="icon" src="">
+      </div>
+      <h3>5-Day Forecast:</h3>
+      <div class="forecast">
+        <div class="day">
+          <p class="day-name"></p>
+          <p class="day-temp"></p>
+          <img class="day-icon" src="">
+        </div>
+        <div class="day">
+          <p class="day-name"></p>
+          <p class="day-temp"></p>
+          <img class="day-icon" src="">
+        </div>
+        <div class="day">
+          <p class="day-name"></p>
+          <p class="day-temp"></p>
+          <img class="day-icon" src="">
+        </div>
+        <div class="day">
+          <p class="day-name"></p>
+          <p class="day-temp"></p>
+          <img class="day-icon" src="">
+        </div>
+        <div class="day">
+          <p class="day-name"></p>
+          <p class="day-temp"></p>
+          <img class="day-icon" src="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
