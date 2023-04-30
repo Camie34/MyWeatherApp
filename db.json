@@ -1,66 +1,65 @@
 {
-    "cities": [
-      {
-        "id": 1,
-        "name": "New York",
-        "country": "US",
-        "temperature": 15,
-        "weather": "Cloudy",
-        "humidity": 50,
-        "wind_speed": 10,
-        "icon": "data:image/png;base64,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" 
-      },
+  "cities": [
+    {
+      "id": 1,
+      "name": "New York",
+      "country": "US",
+      "temperature": 15,
+      "weather": "Cloudy",
+      "humidity": 50,
+      "wind_speed": 10,
+      "icon": "https://cdn.iconscout.com/icon/free/png-256/free-cloudy-2960374-2451828.png?f=webp&w=256" 
+    },
 
-      {
-        "id": 2,
-        "name": "Paris",
-        "country": "FR",
-        "temperature": 20,
-        "weather": "Sunny",
-        "humidity": 60,
-        "wind_speed": 5,
-        "icon": ""
-      },
-      {
-        "id": 3,
-        "name": "London",
-        "country": "UK",
-        "temperature": 10,
-        "weather": "Rainy",
-        "humidity": 70,
-        "wind_speed": 8,
-        "icon": ""
-      },
-      {
-        "id": 4,
-        "name": "Tokyo",
-        "country": "JP",
-        "temperature": 25,
-        "weather": "Sunny",
-        "humidity": 45,
-        "wind_speed": 12,
-        "icon": ""
-      },
-      {
-        "id": 5,
-        "name": "Sydney",
-        "country": "AU",
-        "temperature": 30,
-        "weather": "Clear",
-        "humidity": 55,
-        "wind_speed": 15,
-        "icon": ""
-      },
-      {
-        "id": 6,
-        "name": "Rio de Janeiro",
-        "country": "BR",
-        "temperature": 28,
-        "weather": "Cloudy",
-        "humidity": 70,
-        "wind_speed": 10,
-        "icon": ""
-      }
-    ]
+    {
+      "id": 2,
+      "name": "Paris",
+      "country": "FR",
+      "temperature": 20,
+      "weather": "Sunny",
+      "humidity": 60,
+      "wind_speed": 5,
+      "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Weather_icon_-_sunny.svg/512px-Weather_icon_-_sunny.svg.png"
+    },
+    {
+      "id": 3,
+      "name": "London",
+      "country": "UK",
+      "temperature": 10,
+      "weather": "Rainy",
+      "humidity": 70,
+      "wind_speed": 8,
+      "icon": "https://www.clipartmax.com/png/middle/182-1822480_rain-icon-rainy-weather-icon.png"
+    },
+    {
+      "id": 4,
+      "name": "Tokyo",
+      "country": "JP",
+      "temperature": 25,
+      "weather": "Sunny",
+      "humidity": 45,
+      "wind_speed": 12,
+      "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Weather_icon_-_sunny.svg/512px-Weather_icon_-_sunny.svg.png"
+    },
+    {
+      "id": 5,
+      "name": "Sydney",
+      "country": "AU",
+      "temperature": 30,
+      "weather": "Clear",
+      "humidity": 55,
+      "wind_speed": 15,
+      "icon": "https://cdn-icons-png.flaticon.com/512/3731/3731810.png"
+    },
+    {
+      "id": 6,
+      "name": "Rio de Janeiro",
+      "country": "BR",
+      "temperature": 28,
+      "weather": "Cloudy",
+      "humidity": 70,
+      "wind_speed": 10,
+      "icon": "https://cdn.iconscout.com/icon/free/png-256/free-cloudy-2960374-2451828.png?f=webp&w=256"
+    }
+  ]
 }
-  
