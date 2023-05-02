@@ -29,7 +29,7 @@ To obtain an API key, follow these steps:
 3. Generate a new API key by entering a name for the key and 4. clicking on the "Generate" button.
 
 Copy the API key and paste it in the apiKey variable in the app.js file.
-## javascript
+## javascript 
 
 Copy code
 const apiKey = "your_api_key_here";

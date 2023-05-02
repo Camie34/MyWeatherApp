@@ -1,5 +1,5 @@
 const apiKey = "342689e1f0a53f1f55a9a83f8fc21c91" ;
-const apiUrl = "" ;
+const apiUrl = "https://api.openweathermap.org/data/3.0/weather?units=metric&q=NewYork";
 
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
@@ -11,8 +11,8 @@ async function checkWeather(city){
   
   if (response.status == 404){
 
-    document.querySelector(".error").style.display = "block"; 
-    document.querySelector(".weather").style.display = "none"; 
+    document.querySelector(".error").style.display = "none"; 
+    document.querySelector(".weather").style.display = "block"; 
   } else {
 
   var data = await response.json();  
@@ -43,7 +43,7 @@ async function checkWeather(city){
     } 
 
      document.querySelector(".weather").style.display = "block";
-    document.querySelector(".error").style.display = "block";  
+    document.querySelector(".error").style.display = "none";  
 
 }
 }
