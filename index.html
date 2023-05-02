@@ -2,61 +2,41 @@
 
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Weather App</title>
+  <meta name="viewort" content="width=device-width", initial-scale="1.0">
+  <title>MyWeatherApp</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>MyWeatherApp</h1>
-    <form>
-      <label for="search">Enter a location:</label>
-      <input type="text" id="search" placeholder="New York City">
-      <button type="submit">Search</button>
-    </form>
-    <div id="loading">
-      <img src="https://media.tenor.com/64UaxgnTfx0AAAAC/memes-loading.gif" alt="Loading...">
+  <div class="card">
+    <div class="search">
+      <input type="text" placeholder="enter city name" spellcheck="false">
+      <button> <img src="images/search.png" alt=""></button>
     </div>
-    <div id="error" class="hidden">
-      <p>There was an error retrieving weather data.</p>
+    <div class="error">
+      <p>Invalid city name</p>
     </div>
-    <div id="weather" class="hidden">
-      <h2><span id="location"></span></h2>
-      <div class="current">
-        <p id="temperature"></p>
-        <p id="condition"></p>
-        <img alt="Cloudy" id="icon" src="https://cdn.iconscout.com/icon/free/png-256/free-cloudy-2960374-2451828.png?f=webp&w=256">
+    <div class="Weather">
+      <img alt="" src="images/rain.png" class="weather-icon">
+      <h1 class="temp">22°c</h1>
+      <h2 class="city">New York</h2>
+      <div class="details">
+        <div class="col">
+         <img alt="" src="images/humidity.png">
+         <div>
+         <p class="humidy">50%</p>
+        <p>humidity</p>
       </div>
-      <h3>5-Day Forecast:</h3>
-      <div class="forecast">
-        <div class="day">
-          <p class="day-name"></p>
-          <p class="day-temp"></p>
-          <img alt="Sunny" class="day-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Weather_icon_-_sunny.svg/512px-Weather_icon_-_sunny.svg.png">
         </div>
-        <div class="day">
-          <p class="day-name"></p>
-          <p class="day-temp"></p>
-          <img alt="Rainy" class="day-icon" src="https://www.clipartmax.com/png/middle/182-1822480_rain-icon-rainy-weather-icon.png">
-        </div>
-        <div class="day">
-          <p class="day-name"></p>
-          <p class="day-temp"></p>
-          <img alt="Sunny" class="day-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Weather_icon_-_sunny.svg/512px-Weather_icon_-_sunny.svg.png">
-        </div>
-        <div class="day">
-          <p class="day-name"></p>
-          <p class="day-temp"></p>
-          <img alt="Clear-sky" class="day-icon" src="https://cdn-icons-png.flaticon.com/512/3731/3731810.png">
-        </div>
-        <div class="day">
-          <p class="day-name"></p>
-          <p class="day-temp"></p>
-          <img alt="Cloudy" class="day-icon" src="https://cdn.iconscout.com/icon/free/png-256/free-cloudy-2960374-2451828.png?f=webp&w=256">
+        <div class="col">
+          <img alt="" src="images/wind.png">
+          <div>
+            <p class="wind">15 km/h </p> 
+            <p>Wind Speed</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+    </div>
   <script src="app.js"></script>
 </body>
 </html>

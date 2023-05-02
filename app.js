@@ -1,88 +1,56 @@
-const API_KEY = '342689e1f0a53f1f55a9a83f8fc21c91';
+const apiKey = "342689e1f0a53f1f55a9a83f8fc21c91" ;
+const apiUrl = "" ;
 
-const form = document.querySelector('form');
-const input = document.querySelector('#search');
-const loading = document.querySelector('#loading');
-const error = document.querySelector('#error');
-const weather = document.querySelector('#weather');
-const locationName = document.querySelector('#location');
-const currentTemperature = document.querySelector('#temperature');
-const currentCondition = document.querySelector('#condition');
-const currentIcon = document.querySelector('#icon');
-const forecastDays = document.querySelectorAll('.day-name');
-const forecastTemperatures = document.querySelectorAll('.day-temp');
-const forecastIcons = document.querySelectorAll('.day-icon');
-const citiesList = document.querySelector('#cities-list');
+const searchBox = document.querySelector(".search input");
+const searchBtn = document.querySelector(".search button");
+const weatherIcon = document.querySelector(".weather-icon"); 
 
-form.addEventListener('submit', async (event) => {
-  event.preventDefault();
-  const location = input.value;
-  await getWeather(location);
-});
 
-async function getWeather(location) {
-  try {
-    loading.classList.remove('hidden');
-    error.classList.add('hidden');
-    weather.classList.add('hidden');
+async function checkWeather(city){
+  const response = await fetch(apiUrl + city  +`&appid=${apiKey}`);
+  
+  if (response.status == 404){
 
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}&units=metric`);
-    const data = await response.json();
+    document.querySelector(".error").style.display = "block"; 
+    document.querySelector(".weather").style.display = "none"; 
+  } else {
 
-    if (data.cod !== 200) {
-      throw new Error(data.message);
+  var data = await response.json();  
+
+
+  document.querySelector(".city").innerHTML = data.name;
+  document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°c";
+  document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+  document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
+
+  if(data.weather[0].main == "Clouds"){
+    weatherIcon.src = "images/clouds.png";
+     }
+     else if (data.weather[0].main == "Clear"){
+      weatherIcon.src = "images/clear.png";
+     }
+     else if (data.weather[0].main == "Clear"){
+      weatherIcon.src = "images/clear.png";
     }
-
-    const { name, main, weather } = data;
-    locationName.textContent = name;
-    currentTemperature.textContent = `${Math.round(main.temp)}°C`;
-    currentCondition.textContent = weather[0].description;
-    currentIcon.src = `http://openweathermap.org/img/w/${weather[0].icon}.png`;
-
-    const forecastResponse = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${API_KEY}&units=metric`);
-    const forecastData = await forecastResponse.json();
-
-    if (forecastData.cod !== '200') {
-      throw new Error(forecastData.message);
+      else if (data.weather[0].main == "Rain"){
+      weatherIcon.src = "images/rain.png";
     }
+    else if (data.weather[0].main == "Drizzle"){
+      weatherIcon.src = "images/drizzle.png";
+    }
+    else if (data.weather[0].main == "Mist"){
+      weatherIcon.src = "images/mist.png";
+    } 
 
-    const forecastDaysData = forecastData.list.filter((item) => item.dt_txt.includes('12:00:00'));
-    forecastDaysData.forEach((dayData, index) => {
-      const { dt_txt, main, weather } = dayData;
-      const date = new Date(dt_txt);
-      const dayName = date.toLocaleDateString('en-US', { weekday: 'long' });
-      const iconUrl = `http://openweathermap.org/img/w/${weather[0].icon}.png`;
-      forecastDays[index].textContent = dayName;
-      forecastTemperatures[index].textContent = `${Math.round(main.temp)}°C`;
-      forecastIcons[index].src = iconUrl;
-    });
+     document.querySelector(".weather").style.display = "block";
+    document.querySelector(".error").style.display = "block";  
 
-    loading.classList.add('hidden');
-    weather.classList.remove('hidden');
-  } catch (error) {
-    console.error(error);
-    error.textContent = 'Something went wrong. Please try again.';
-    loading.classList.add('hidden');
-    error.classList.remove('hidden');
-  }
+}
 }
 
-async function getCities() {
-  try {
-    const response = await fetch('http://localhost:3000/cities');
-    const data = await response.json();
+searchBtn.addEventListener("click", ()=>{
+  checkWeather(searchBox.value);
+})
 
-    data.cities.forEach(city => {
-      const li = document.createElement('li');
-      li.textContent = `${city.name}, ${city.country}`;
-      citiesList.appendChild(li);
-    });
-  } catch (err) {
-    console.error(err);
-    error.textContent = 'Failed to load cities. Please try again.';
-    error.classList.remove('hidden');
-  }
-}
-
-
-error.classList.add('hidden');
+checkWeather();  
+          

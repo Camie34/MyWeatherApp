@@ -1,15 +1,40 @@
 # MyWeatherApp
 
-This is a simple weather app that allows you to search for the current weather and 5-day forecast for any location. The app uses the OpenWeatherMap API to retrieve weather data.
+A simple web application built using HTML, CSS, and JavaScript that displays the weather information of a specific city.
 
-Getting Started
-To get started with the app, simply clone this repository and open the index.html file in your web browser. You can then enter a location in the search bar and click the "Search" button to retrieve weather data.
+## Installation
 
-API Key
-In order to use the OpenWeatherMap API, you will need to obtain an API key. You can do so by signing up for a free account at the following link: https://my-json-server.typicode.com/
+To install this project, you can clone this repository using the following command:
 
-Once you have obtained your API key, you can add it to the app.js file by replacing the placeholder text with your actual API key:
+bash
 
-javascript
+## Copy code
+
+git clone git@github.com:Camie34/MyWeatherApp.git
+
+## Usage
+
+To use the project, open the index.html file in your web browser.
+
+You can enter the name of a city in the search box and click on the search button to display the current weather information for that city.
+
+## API Key
+
+This project uses the OpenWeatherMap API to fetch the weather information. You need to have a valid API key to use this application.
+
+To obtain an API key, follow these steps:
+
+1. Go to the OpenWeatherMap website and sign up for an account.
+2. After logging in, go to your API keys page.
+3. Generate a new API key by entering a name for the key and 4. clicking on the "Generate" button.
+
+Copy the API key and paste it in the apiKey variable in the app.js file.
+## javascript
+
 Copy code
-const apiKey = "";
+const apiKey = "your_api_key_here";
+const apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
+
+## Credits
+
+The weather icons used in this project are from Icons8. 
