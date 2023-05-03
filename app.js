@@ -1,5 +1,5 @@
 const apiKey = "342689e1f0a53f1f55a9a83f8fc21c91" ;
-const apiUrl = "https://api.openweathermap.org/data/3.0/weather?units=metric&q=NewYork";
+const apiUrl = "";
 
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
@@ -53,4 +53,3 @@ searchBtn.addEventListener("click", ()=>{
 })
 
 checkWeather();  
-          
