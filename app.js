@@ -1,5 +1,5 @@
-const apiKey = "342689e1f0a53f1f55a9a83f8fc21c91" ;
-const apiUrl = ""
+const apiKey = "5043398f8b30ad15d995d3a4450e46a5";
+const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
@@ -9,13 +9,10 @@ async function checkWeather(city){
   const response = await fetch(apiUrl + city  +`&appid=${apiKey}`);
   
   if (response.status == 404){
-
     document.querySelector(".error").style.display = "none"; 
     document.querySelector(".weather").style.display = "block"; 
   } else {
-
     var data = await response.json();  
-
 
     document.querySelector(".city").innerHTML = data.name;
     document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°c";
@@ -40,13 +37,12 @@ async function checkWeather(city){
 
     document.querySelector(".weather").style.display = "block";
     document.querySelector(".error").style.display = "none";  
-
   }
 }
 
 searchBtn.addEventListener("click", ()=>{
   checkWeather(searchBox.value);
-})
+});
 
 // call checkWeather() function with default city parameter
-checkWeather();
+checkWeather("San Francisco");
